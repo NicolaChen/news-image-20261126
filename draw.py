@@ -125,13 +125,14 @@ def card(x,y,region,head,kind,palette):
     line([(x,y),(x+464,y)],INK,2)
     emblem(kind,x,y+19,*palette)
     text(x+144,y+19,region,23,RUST)
+    size = 31 if len(head) == 4 else 34
     for i, row in enumerate(head):
-        assert font("Arial Bold",34).getlength(row)/S <= 320, row
-        text(x+144,y+53+i*36,row,34)
+        assert font("Arial Bold",size).getlength(row)/S <= 310, row
+        text(x+144,y+53+i*(size+2),row,size)
 
 
 text(40,33,"THE WORLD IN FIVE",29,RUST)
-text(825,35,"THURSDAY",25,INK)
+text(819,35,"DAILY BRIEF",25,INK)
 text(40,75,"26 November 2026",86,INK,"Georgia Bold")
 line([(40,183),(984,183)],INK,4)
 box(40,204,944,300,INK)
@@ -143,13 +144,13 @@ text(67,458,"Gaza hospitals, via AP",26,"#f5bb83")
 
 card(40,532,"02   /   UNITED STATES",("Thanksgiving", "storms flood", "the East Coast"),
      "storm", ("#eef0e2","#365968"))
-card(520,532,"03   /   GUINEA-BISSAU",("Junta delays", "elections", "until 2028"),
+card(520,532,"03   /   GUINEA-BISSAU",("Junta delays", "elections to", "November 2028"),
      "vote", ("#ecdc9b","#384e39"))
-card(40,725,"04   /   MYANMAR",("Rejects parts of", "ICJ ruling on", "Rohingya genocide"),
+card(40,725,"04   /   MYANMAR",("Rejects parts of", "ICJ ruling on", "the Rohingya", "genocide"),
      "court", ("#f4d9ad","#8c473b"))
-card(520,725,"05   /   EUROPE",("EU backs de Cos", "for European", "Central Bank chief"),
+card(520,725,"05   /   EUROPE",("EU nominates", "Pablo Hernández", "de Cos for ECB", "president"),
      "euro", ("#f5dda7","#52476c"))
 line([(40,934),(984,934)],INK,4)
-text(40,956,"WORLD NEWS   /   01—05",24,RUST)
+text(40,956,"THURSDAY   /   WORLD NEWS",24,RUST)
 text(685,956,"ILLUSTRATED EDITION",24,INK)
 im.resize((1024,1024),Image.Resampling.LANCZOS).save(argv[1], optimize=True)
